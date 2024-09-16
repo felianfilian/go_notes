@@ -6,23 +6,34 @@ import (
 )
 
 func main() {
-	fmt.Println("Go Notes")
-	title, err := getUserInput("note title: ")
+	title, content, err := getNoteData()
 
-	if(err != nil){
-		fmt.Println(err)
-		return
-	}
-
-	content, err := getUserInput("note content: ")
-
-	if(err != nil){
+	if(err != nil) {
 		fmt.Println(err)
 		return
 	}
 
 	fmt.Println(title)
 	fmt.Println(content)
+}
+
+func getNoteData() (string, string, error) {
+	fmt.Println("Go Notes")
+	title, err := getUserInput("note title: ")
+
+	if(err != nil){
+		fmt.Println(err)
+		return "","", err
+	}
+
+	content, err := getUserInput("note content: ")
+
+	if(err != nil){
+		fmt.Println(err)
+		return "","", err
+	}
+
+	return title, content, err
 }
 
 func getUserInput(prompt string) (string, error) {
