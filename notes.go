@@ -2,14 +2,20 @@ package main
 
 import (
 	"fmt"
+	"notes/note"
 )
 
 func main() {
 	title, content := getNoteData()
 
-	
+	myNote, err := note.NewNote(title, content)
 
-	fmt.Println(title)
+	if(err != nil) {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println(myNote)
 	fmt.Println(content)
 }
 

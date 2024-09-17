@@ -6,9 +6,9 @@ import (
 )
 
 type Note struct {
-	title     string
-	content   string
-	createdAt time.Time
+	title     string `json:"note_title"`
+	content   string `json:"note_content"`
+	createdAt time.Time `json:"note_created"`
 }
 
 func NewNote(title, content  string) (Note, error) {
