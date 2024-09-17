@@ -15,8 +15,10 @@ func main() {
 		return
 	}
 
-	fmt.Println(myNote)
-	fmt.Println(content)
+	myNote.Display();
+
+	//fmt.Println(myNote)
+	//fmt.Println(content)
 }
 
 func getNoteData() (string, string) {
