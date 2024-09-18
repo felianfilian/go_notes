@@ -20,8 +20,13 @@ func main() {
 
 	myNote.Display();
 
-	//fmt.Println(myNote)
-	//fmt.Println(content)
+	err = myNote.Save()
+	if(err != nil) {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("Save Note Successful")
 }
 
 func getNoteData() (string, string) {
