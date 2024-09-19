@@ -9,6 +9,10 @@ import (
 	"strings"
 )
 
+type saver interface {
+	Save() error
+}
+
 func main() {
 	title, content := getNoteData()
 	todoText := getTodoData()
@@ -43,6 +47,8 @@ func main() {
 	fmt.Println("Save Todo Successful")
 }
 
+
+
 func getNoteData() (string, string) {
 	fmt.Println("Go Notes")
 	title := getUserInput("note title: ")
@@ -71,4 +77,9 @@ func getUserInput(prompt string) string {
 	text = strings.TrimSuffix(text, "\r")
 
 	return text
+}
+
+func saveData(data saver) error {
+	data.Save()
+	return nil
 }
