@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"notes/note"
+	"notes/todo"
 	"os"
 	"strings"
 )
@@ -12,6 +13,8 @@ func main() {
 	title, content := getNoteData()
 
 	myNote, err := note.NewNote(title, content)
+	myTodo, err := todo.NewTodo("todo-test")
+	fmt.Println(myTodo.Text)
 
 	if(err != nil) {
 		fmt.Println(err)

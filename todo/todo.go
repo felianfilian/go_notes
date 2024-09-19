@@ -28,7 +28,7 @@ func (todo Todo) Save() error {
 	return os.WriteFile(fileName, json, 0644)
 }
 
-func NewNote(content string) (Todo, error) {
+func NewTodo(content string) (Todo, error) {
 	if(content == "") {
 		return Todo{}, errors.New("invalid input")
 	}
