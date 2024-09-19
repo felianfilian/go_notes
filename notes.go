@@ -27,24 +27,30 @@ func main() {
 	}
 
 	myNote.Display();
-
-	// save note
-	err = myNote.Save()
+	err = saveData(myNote)
 	if(err != nil) {
-		fmt.Println(err)
+		return
+	}
+	err = saveData(myTodo)
+	if(err != nil) {
 		return
 	}
 
-	fmt.Println("Save Note Successful")
+	// // save note
+	// err = myNote.Save()
+	// if(err != nil) {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	// fmt.Println("Save Note Successful")
 
-	// save todo
-	err = myTodo.Save()
-	if(err != nil) {
-		fmt.Println(err)
-		return
-	}
-
-	fmt.Println("Save Todo Successful")
+	// // save todo
+	// err = myTodo.Save()
+	// if(err != nil) {
+	// 	fmt.Println(err)
+	// 	return
+	// }
+	// fmt.Println("Save Todo Successful")
 }
 
 
@@ -80,6 +86,13 @@ func getUserInput(prompt string) string {
 }
 
 func saveData(data saver) error {
-	data.Save()
+	// save note
+	err := data.Save()
+	if(err != nil) {
+		fmt.Println("saving note failed")
+		return err
+	}
+
+	fmt.Println("Save Note Successful")	
 	return nil
 }
