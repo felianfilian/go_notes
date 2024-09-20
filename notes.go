@@ -18,6 +18,12 @@ func main() {
 	todoText := getTodoData()
 
 	myNote, err := note.NewNote(title, content)
+
+	if(err != nil) {
+		fmt.Println(err)
+		return
+	}
+
 	myTodo, err := todo.NewTodo(todoText)
 	fmt.Println(myTodo.Text)
 
