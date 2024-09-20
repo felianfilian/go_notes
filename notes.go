@@ -41,21 +41,20 @@ func main() {
 		return
 	}
 
-	myNote.Display()
-	err = saveData(myNote)
+	err = outputData(myNote)
 	if(err != nil) {
 		return
 	}
-	myTodo.Display()
-	err = saveData(myTodo)
+	
+	err = outputData(myTodo)
 	if(err != nil) {
 		return
 	}
 }
 
-func outputData(data outputable) {
+func outputData(data outputable) error {
 	data.Display()
-	saveData(data)
+	return saveData(data)
 }
 
 func getNoteData() (string, string) {
